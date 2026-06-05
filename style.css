@@ -4,7 +4,9 @@
 
 body {
   margin: 0;
-  background: #efefef;
+  /* background: #efefef; */
+  background: linear-gradient(to bottom, #efefef, #9f9f9f);
+  min-height: 100vh;
   color: #000000;
   font-family: "Helvetica Neue", Arial, sans-serif;
 }
@@ -47,6 +49,7 @@ h2 {
   display: inline-block;
   transform: scaleY(1.5);
   /* imma keep this here if i ever want to change it */
+  -webkit-text-stroke: 1px #000000;
 }
 
 .content > p {
@@ -56,6 +59,7 @@ h2 {
   text-transform: uppercase;
   letter-spacing: 0.15em;
   line-height: 1.4;
+  -webkit-text-stroke: 0.8px #000000;
 }
 
 #interests {
@@ -86,7 +90,7 @@ h2 {
   font-size: 1rem;
   font-weight: 600;
   padding: 10px 20px;
-  background: #fff;
+  background: #fdfdfd;
   border: 1px solid #000000;
   border-radius: 100px;
   transition:
@@ -98,7 +102,7 @@ h2 {
 
 #interests li:hover {
   background: #eb6767;
-  color: #fff;
+  color: #efefef;
   border-color: #000;
   transform: translateY(-0px) scale(1.2);
   /* change translateY to go up */
@@ -130,7 +134,7 @@ nav {
   align-items: center;
   margin-bottom: 48px;
   padding: 16px 24px;
-  background: #fff;
+  background: #fdfdfd;
   border: 1px solid #000000;
   border-radius: 12px;
 }
@@ -169,7 +173,7 @@ nav h1 {
 
 .nav-li a:hover {
   background: #eb6767;
-  color: #fff;
+  color: #fdfdfd;
 }
 
 .content h1 {
@@ -177,6 +181,7 @@ nav h1 {
   font-family: "Impact", "Arial Black", sans-serif;
   text-transform: uppercase;
   font-size: 5rem;
+  -webkit-text-stroke: 1px #000000;
 }
 
 .content p {
@@ -213,8 +218,8 @@ nav h1 {
   font-weight: 500;
   font-family: "Impact", "Arial Black", sans-serif;
   letter-spacing: 0.02em;
-  background: #fff;
-  border: 1px solid #e0e0e0;
+  background: #efefef;
+  border: 1px solid #000000;
   border-radius: 12px;
   transition:
     background 0.25s ease,
@@ -224,7 +229,7 @@ nav h1 {
 
 #portfolio a:hover {
   background: #eb6767;
-  color: #fff;
+  color: #efefef;
   transform: translateX(10px);
 }
 
