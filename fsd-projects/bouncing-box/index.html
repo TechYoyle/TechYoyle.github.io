@@ -6,6 +6,13 @@
     <title>Bouncing Box</title>
     <script src="jquery.min.js"></script>
     <style>
+      html, body {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        height: 100%;
+        overflow: hidden; /* This completely kills the scrollbars */
+      }
       .box {
         width: 70px;
         height: 70px;
@@ -17,8 +24,23 @@
         display: block;
         position: absolute;
         top: 100px;
+        border-radius: 8px;
         /* Change me! */
         left: 0px;
+      }
+
+      .box-echo {
+        width: 70px;
+        height: 70px;
+        background-color: #eb6767;
+        border-radius: 8px;
+        position: absolute;
+        pointer-events: none; 
+        
+        opacity: 0.5;
+        transform: scale(1);
+        
+        transition: transform 0.5s ease-out, opacity 0.5s ease-out;
       }
 
       .board {
@@ -27,6 +49,30 @@
 
       body {
         background: #efefef;
+      }
+
+      #speedcount {
+        position: fixed;
+        bottom: 15px;
+        left: 50%;
+        margin-left: 0px;
+        transform: translateX(-50%);
+        font-family:'Courier New', Courier, monospace;
+        font-weight: 600;
+        font-size: 30px;
+      transition: font-size 0.5s ease-out;
+      }
+
+      .box-trail {
+        width: 50px;
+        height: 50px;
+        background-color: #eb6767;
+        border-radius: 6px;
+        position: absolute;
+        pointer-events: none; 
+        opacity: 0.3;
+        transform: translate(10px, 10px); 
+        transition: opacity 1s ease-out, transform 1s ease-out;
       }
     </style>
     <!-- 	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script> -->
@@ -87,12 +133,33 @@
         var positionY = 0;
         var speedY = Math.random () * 3;
         var boardHeight = jQuery(window).height();
+        var frameCount = 0;
         /**
          * This Function will be called 20 times/second.
          * Each time it is called, it should move the Box to a new location.
          * If the box drifts off the screen, turn it around!
          */
         function update() {
+          frameCount++;
+          /* trails */
+          if (frameCount % 3 === 0) {
+            var trail = jQuery("<div></div>").addClass("box-trail");
+            trail.css({
+              "left": positionX + "px",
+              "top": positionY + "px"
+            });
+            board.append(trail);
+            setTimeout(function() {
+              trail.css({
+                "opacity": "0",
+                "transform": "translate(10px, 10px) scale(0.2)"
+              });
+            }, .01);
+            setTimeout(function() {
+              trail.remove();
+            }, 1000);
+          }
+
           moveBoxTo(positionX, positionY);
           positionX += speed;
           positionY += speedY;
@@ -112,7 +179,7 @@
           }
 
           var currentSpeed = Math.abs(speed);
-          speedCounter.text("Speed: " + currentSpeed);
+          speedCounter.text("Speed: " + currentSpeed.toFixed(1));
         }
 
         /**
@@ -124,18 +191,47 @@
          */
         function handleBoxClick() {
           /* positionX = randNum;
-          ^ i didnt like it resetting */
+          ^ i didnt like it resetting 
           randNum = Math.random() * boardWidth;
+          ^ something for positonX i didnt need anymore */
           points += 1;
-          speed = 0.2 * points + 3
+          var newspeed = 0.2 * points + 3;
+          speedY = 0.2 * points + 3;
+
+          /* box exploding out */
+          var echo = jQuery("<div></div>").addClass("box-echo");
+          echo.css({
+            "left": positionX + "px",
+            "top": positionY + "px"
+          });
+          board.append(echo);
+
+          setTimeout(function() {
+            echo.css({
+              "transform": "scale(5)",
+              "opacity": "0"
+            });
+          }, 10);
+
+          setTimeout(function() {
+            echo.remove();
+          }, 500);
+
+          if (speed > 0) {
+            speed = -newspeed;
+          } else {
+            speed = newspeed;
+          }
           changeBoxText(points);
-          /* if points >= 10;
-            s
-          */
+        /* text becoming large then small */
+        speedCounter.css("transition", "none");
+          speedCounter.css("font-size", "45px");
+
+          setTimeout(function() {
+            speedCounter.css("transition", "font-size 0.5s ease-out");
+            speedCounter.css("font-size", "30px");
+          }, 50);
         }
-
-
-        
       })();
     </script>
   </body>
