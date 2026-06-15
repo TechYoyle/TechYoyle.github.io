@@ -126,14 +126,12 @@ Confirm:
 
 2. **Review the starting code for buildings**  
    The building object currently contains only one instance:
-
    - x: 0
    - width: 100
    - height: 300
    - speedX: -2
 
 3. **Add more building instances**
-
    - Add new objects to the instances array
    - Vary values for:
      - x (horizontal position)
@@ -181,12 +179,10 @@ Confirm:
 ### Step-by-Step Instructions
 
 1. **🔍 Locate the `moveScenery` function**
-
    - Open **student.js**
    - Find the function named `moveScenery`
 
 2. **Loop through `building.instances`**
-
    - In `moveScenery`, iterate over the `scenery.building.instances` array.
    - Store the current instance in a variable for easy access via
 
@@ -197,22 +193,17 @@ Confirm:
    - For each instance, update its `x` position by adding both the instance’s `speedX` and the `currentLevel.speed` value.
 
 3. **Loop through `lamp.instances`**
-
    - Repeat the same pattern for the `lamp.instances` array.
    - Loop through each lamp instance and adjust its `x` position with the same logic.
 
 4. **Detect when scenery moves off the left edge**
-
    - Inside each loop (for both buildings and lamps), add a **conditional** to see when an instance has completely left the screen on the left side.
    - You will know it’s off-screen when:
-
      - The instance’s right edge (`x` position plus `width`) is **less than 0**.
      - That means the object is no longer visible on the canvas.
 
 5. **Wrap scenery to the right side**
-
    - When an instance has moved fully off the left side:
-
      - Reset its `x` position to equal the corresponding `loopWidth` value for each instance type. For example, you would set building instances using the code:
 
        ```javascript
@@ -258,24 +249,19 @@ Confirm:
 ### Step-by-Step Instructions
 
 1. **🔍 Locate the `generateLevel` function**
-
    - Open **student.js**
    - Find the function named `generateLevel`
 
 2. **Loop through `currentLevel.gameObjects`**
-
    - Inside `generateLevel`, create a loop that goes through the `currentLevel.gameObjects` array.
 
 3. **Store the current object in a variable**
-
    - Inside the loop, store the current game object in a variable called `currentObject`.
 
 4. **Create the object with `create(currentObject)`**
-
    - Still inside the loop, call the `create` function and pass in the current object as an argument.
 
 5. **Log object details to check your work**
-
    - To confirm every object is being processed, `console.log` the `type` and `kind` of each object.
 
    - After checking your work below, you should remove or comment out these logs.
@@ -317,13 +303,11 @@ Confirm:
 ### Step-by-Step Instructions
 
 1. **🔍 Locate the `create` function**
-
    - Open **student.js**
    - Find the function named `create`
    - This function should take **one argument**, the object being created.
 
 2. **Check the object’s `type`**
-
    - Inside `create`, check the `type` property of the passed-in argument.
    - Use a series of conditionals to check which type it matches.
    - The possible types are:
@@ -334,7 +318,6 @@ Confirm:
      - `"platform"`
 
 3. **Call the corresponding `make` function**
-
    - For each possible type, call the appropriate "make" function, which is something we call a factory function.
    - The available `make` functions correspond directly to the types listed above.
    - Pass the entire object into the function so it has all the data it needs.
@@ -375,26 +358,21 @@ Confirm:
 ### Step-by-Step Instructions
 
 1. **🔍 Locate the `filterObjects` function**
-
    - Open **student.js**
    - Find the function named `filterObjects`
    - This function should receive one argument: the type you want to filter for.
 
 2. **Create an empty array to store the matches**
-
    - Inside the function, start by creating a new array.
 
 3. **Loop over all game objects**
-
    - Use a loop to go through `gameObjects` one by one.
 
 4. **Check the object’s type**
-
    - Inside the loop, check whether the current object’s `type` matches the type passed into the function.
    - If it matches, add it to your new array.
 
 5. **Return the result**
-
    - After the loop finishes, return your new array.
 
 ---
@@ -434,21 +412,17 @@ Confirm:
 ### Step-by-Step Instructions
 
 1. **🔍 Locate the `moveGameObjects` function**
-
    - Open **student.js**
    - Find the function named `moveGameObjects`
    - This function should take **one argument**: an array of game objects.
 
 2. **Loop through the array of objects**
-
    - Inside the function, write a loop that iterates over the array you receive.
 
 3. **Store the current object in a variable**
-
    - Inside the loop, store the current object in a variable for easy access.
 
 4. **Update the object’s position**
-
    - Modify the object’s position by:
      - Adding the object’s speed to the current position
      - Subtracting the level’s speed from the current position
@@ -492,13 +466,11 @@ Confirm:
 ### Step-by-Step Instructions
 
 1. **🔍 Locate Level 1 in `levels.js`**
-
    - Open **levels.js**
    - Find the level object whose name corresponds to **"Level 1"**
    - Inside that level, look for the **`gameObjects`** array; this is where all the objects for the level are defined.
 
 2. **Add (and update) required objects to `gameObjects`**
-
    - Inside the Level 1 `gameObjects` array, make sure you have at least:
      - **3 obstacles**
      - **3 platforms**
@@ -511,12 +483,10 @@ Confirm:
    > **HINT:** _(You can copy and edit existing objects, then change their type, position, and properties.)_
 
 3. **Place the goal at the end of the level**
-
    - Your **single goal object** should be placed near the end of the level so the player has to travel through your level to reach it.
    - Make sure there is **only one** goal in Level 1’s `gameObjects` array.
 
 4. **Optionally customize the level name and speed**
-
    - Inside the Level 1 configuration, look for fields that control:
      - The **name** of the level (for example, `"Level 1"`)
      - The **speed** of the level (how fast the world scrolls)
@@ -656,33 +626,27 @@ When you finish this TODO, Hallebot should be able to shoot obstacles and destro
 ### Step-by-Step Instructions
 
 1. **🔍 Locate the `handleProjectileCollisions` function**
-
    - Open **student.js**
    - Find the function named `handleProjectileCollisions`
    - This is where you will check for collisions between projectiles and game objects.
 
 2. **Loop through all game objects**
-
    - Inside `handleProjectileCollisions`, write a loop that iterates over `gameObjects`.
    - Use `i` as the counting variable for this loop.
    - On each loop, you should be working with a single game object.
 
 3. **Store the current game object**
-
    - Inside the game objects loop, create a variable named `currentObject` and store the game object at index `i` in it.
 
 4. **Loop through all projectiles**
-
    - Still inside the game objects loop, write another loop to go through the `projectiles` array.
    - Use `j` as the counting variable for this inner loop.
    - On each inner loop, you will be working with a single projectile.
 
 5. **Store the current projectile**
-
    - Inside the inner loop, create a variable named `currentProjectile` and store the projectile at index `j` in it.
 
 6. **Check for a collision between projectile and object**
-
    - For each pair of `currentProjectile` and `currentObject`, use a conditional to check if they are colliding.
    - Call the helper function `isCollidingWithProjectile(currentProjectile, currentObject)` inside your conditional, which will tell you if the projectile hits the object.
    - If this function returns `true`, it means the projectile has hit the object.
@@ -701,7 +665,6 @@ When you finish this TODO, Hallebot should be able to shoot obstacles and destro
    ```
 
 7. **Handle the collision**
-
    - When a collision is detected (the condition is true), call the helper function `handleProjectileObjectCollision(i, j)`. This function will handle damage and score calculations for you.
 
 ---
@@ -744,27 +707,22 @@ When you finish this TODO, Hallebot should be able to shoot obstacles and destro
 ### Step-by-Step Instructions
 
 1. **🔍 Locate the `handleHallebotGenericCollisions` function**
-
    - Open **student.js**
    - Find the function named `handleHallebotGenericCollisions`
 
 2. **Loop through all game objects**
-
    - Write a loop that iterates through `gameObjects` using `i` as the counting variable.
    - Inside the loop, create a variable named `currentObject` to store the game object at index `i`.
 
 3. **Skip platforms**
-
    - Before checking collisions, write a conditional that tests whether the object’s `type` is **not** `"platform"`. Platforms are handled separately by the engine, so we want to ignore them here.
 
 4. **Check for a generic collision**
-
    - Inside the conditional of step 3, write a **second, separate** conditional that checks whether  
      `isGenericCollision(currentObject)`  
      is `true`.
 
 5. **Handle the collision**
-
    - If both conditions are true (the object is not a platform _and_ HalleBot is colliding with it), call:
      `handleHallebotGenericCollision(i)`
 
@@ -805,24 +763,19 @@ When you finish this TODO, Hallebot should be able to shoot obstacles and destro
 ### Step-by-Step Instructions
 
 1. **🔍 Locate the `triggerLevelTransition` function**
-
    - Open **student.js**
    - Find the function named `triggerLevelTransition`
 
 2. **Increase the level index**
-
    - Inside the function, increase the value of `currentLevelIndex` by `1`.
 
 3. **Update `currentLevel`**
-
    - Set `currentLevel` equal to the level at the new index inside the `levels` array.
 
 4. **Reset the gameObjects array**
-
    - Before generating the next level, set `gameObjects` to an empty array. This clears all objects from the previous level.
 
 5. **Check if the player reached the final level**
-
    - After resetting the `gameObjects` array, check if `currentLevelIndex` is greater than or equal to `levels.length`.
    - If it is, that means there are no more levels left.
    - In that case, set `player.winConditionMet` to `true` to mark that the player has completed the game.
@@ -867,13 +820,11 @@ When you finish this TODO, Hallebot should be able to shoot obstacles and destro
 ### Step-by-Step Instructions
 
 1. **🔍 Locate Level 2 in `levels.js`**
-
    - Open **levels.js**
    - Find the level object whose name corresponds to **"Level 2"**
    - Inside that level, look for the **`gameObjects`** array; this is where all the objects for the level are defined.
 
 2. **Add (and update) required objects to `gameObjects`**
-
    - Inside the Level 2 `gameObjects` array, make sure you have at least:
      - **5 obstacles**
      - **4 platforms**
@@ -897,7 +848,6 @@ When you finish this TODO, Hallebot should be able to shoot obstacles and destro
 ### ✅ **Check Your Work!**
 
 - In `levels.js`, Level 2’s `gameObjects` array includes:
-
   - At least **5 obstacles**
   - At least **4 platforms**
   - At least **3 powerups**
@@ -919,13 +869,11 @@ When you finish this TODO, Hallebot should be able to shoot obstacles and destro
 1. **Create Level 3 in `levels.js`**
    - Open **levels.js** and go to the bottom of your `levels` array.
 2. **Add a new level object with the following properties:**
-
    - `name`: A unique name for your level (e.g., `"Level 3: The Final Challenge"`).
    - `speed`: Set a scrolling speed for your level.
    - `gameObjects`: An array where you will define all the objects in your level.
 
 3. **Populate the `gameObjects` array with at least:**
-
    - **7 obstacles**
    - **5 platforms**
    - **4 powerups**
@@ -969,7 +917,6 @@ We've compiled a list of optional **bonus challenges** for you to take this proj
 ### Step-by-Step Instructions
 
 1. **Open the terminal in your codespace**
-
    - If the terminal isn’t visible, click the **Hamburger Menu > Terminal > New Terminal**.
 
 2. **Enter the following commands one by one** in the terminal, pressing enter after each command to run it:
