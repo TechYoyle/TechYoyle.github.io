@@ -43,10 +43,23 @@ function create(obj) {
 
 function filterObjects(type) {
   // TODO 5: Return only the game objects of the specified type
+  let matchedObjects = [];
+  for (let i = 0; i < currentLevel.gameObjects.length; i++) {
+    let obj = currentLevel.gameObjects[i];
+    
+    if (obj.type === type) {
+      matchedObjects.push(obj);
+    }
+  }
+  return matchedObjects;
 }
 
 function moveGameObjects(objectList) {
   // TODO 6: Move all game objects of a single type based on speeds
+  for (let i = 0; i < objectList.length; i++) {
+    let obj = objectList[i];
+    obj.x += obj.speedX + currentLevel.speed;
+  }
 }
 
 function handleProjectileCollisions() {
