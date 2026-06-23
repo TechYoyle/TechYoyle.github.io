@@ -56,9 +56,27 @@ function filterObjects(type) {
 
 function moveGameObjects(objectList) {
   // TODO 6: Move all game objects of a single type based on speeds
+  /*
+  1. **🔍 Locate the `moveGameObjects` function**
+   - Open **student.js**
+   - Find the function named `moveGameObjects`
+   - This function should take **one argument**: an array of game objects.
+
+  2. **Loop through the array of objects**
+    - Inside the function, write a loop that iterates over the array you receive.
+
+  3. **Store the current object in a variable**
+    - Inside the loop, store the current object in a variable for easy access.
+
+  4. **Update the object’s position**
+    - Modify the object’s position by:
+      - Adding the object’s speed to the current position
+      - Subtracting the level’s speed from the current position
+  */
   for (let i = 0; i < objectList.length; i++) {
-    let obj = objectList[i];
-    obj.x += obj.speedX + currentLevel.speed;
+    let currentObject = objectList[i];
+    let objectSpeed = currentObject.speed || 0; 
+    currentObject.x += objectSpeed - currentLevel.speed;
   }
 }
 
