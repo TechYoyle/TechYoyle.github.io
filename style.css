@@ -1,0 +1,312 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  /* background: #efefef; */
+  background: linear-gradient(to bottom, #efefef, #9f9f9f);
+  min-height: 100vh;
+  color: #000000;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+}
+
+#all-contents {
+  max-width: 1500px;
+  min-height: 100vh;
+  margin: 0 auto;
+  padding: 32px 40px;
+}
+
+main {
+  display: grid;
+  grid-template-columns: minmax(220px, 1fr) minmax(420px, 1.6fr);
+  align-items: center;
+  min-height: calc(100vh - 160px);
+  gap: clamp(32px, 5vw, 80px);
+}
+
+.sidebar {
+  width: 100%;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+h2 {
+  margin: 0;
+  font-size: clamp(4rem, 10vw, 12rem);
+  line-height: 1.5;
+  font-weight: 1500;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+  color: #eb6767;
+  font-family: "Impact", "Arial Black", sans-serif;
+  display: inline-block;
+  transform: scaleY(1.5);
+  /* imma keep this here if i ever want to change it */
+  -webkit-text-stroke: 1px #000000;
+}
+
+.content > p {
+  margin: 0;
+  color: #000000;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  line-height: 1.4;
+  -webkit-text-stroke: 0.8px #000000;
+}
+
+#interests {
+  margin-top: 32px;
+  width: 100%;
+}
+
+#interests h3 {
+  margin: 0 0 12px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: #000000;
+}
+
+#interests ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+
+#interests li {
+  color: #eb6767;
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 10px 20px;
+  background: #fdfdfd;
+  border: 1px solid #000000;
+  border-radius: 100px;
+  transition:
+    background 0.25s ease,
+    color 0.25s ease,
+    transform 0.25s ease;
+  cursor: default;
+}
+
+#interests li:hover {
+  background: #eb6767;
+  color: #efefef;
+  border-color: #000;
+  transform: translateY(-0px) scale(1.2);
+  /* change translateY to go up */
+}
+
+.sidebar-img {
+  width: 100%;
+  max-width: 1080px;
+  aspect-ratio: 100 / 100;
+  object-fit: cover;
+  display: block;
+  border-radius: 24px;
+  filter: grayscale(100%);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+  transition:
+    filter 0.4s ease,
+    transform 0.2s ease,
+    box-shadow 0.4s ease;
+}
+
+.sidebar-img:hover {
+  filter: grayscale(0%);
+  transform: translateY(-0px) scale(1.05);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.18);
+}
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 48px;
+  padding: 16px 24px;
+  background: #fdfdfd;
+  border: 1px solid #000000;
+  border-radius: 12px;
+}
+
+nav h1 {
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0em;
+  color: #eb6767;
+  font-family: "Impact", "Arial Black", sans-serif;
+}
+
+#nav-ul {
+  list-style: none;
+  display: flex;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-li a {
+  color: #eb6767;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 1.1rem;
+  font-weight: 500;
+  font-family: "Impact", "Arial Black", sans-serif;
+  padding: 6px 14px;
+  border-radius: 8px;
+  transition:
+    background 0.25s ease,
+    color 0.25s ease;
+}
+
+.nav-li a:hover {
+  background: #eb6767;
+  color: #fdfdfd;
+}
+
+.content h1 {
+  color: #eb6767;
+  font-family: "Impact", "Arial Black", sans-serif;
+  text-transform: uppercase;
+  font-size: 5rem;
+  -webkit-text-stroke: 1px #000000;
+}
+
+.content p {
+  color: #eb6767;
+  font-family: "Impact", "Arial Black", sans-serif;
+  text-transform: uppercase;
+  font-size: 3rem;
+  letter-spacing: -0em;
+}
+
+#portfolio {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+#portfolio li {
+  border-radius: 12px;
+}
+
+#portfolio a {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-decoration: none;
+  color: #eb6767;
+  padding: 16px 20px;
+  font-size: 1.1rem;
+  text-transform: uppercase;
+  font-weight: 500;
+  font-family: "Impact", "Arial Black", sans-serif;
+  letter-spacing: 0.02em;
+  background: #efefef;
+  border: 1px solid #000000;
+  border-radius: 12px;
+  transition:
+    background 0.25s ease,
+    color 0.25s ease,
+    transform 0.25s ease;
+}
+
+#portfolio a:hover {
+  background: #eb6767;
+  color: #efefef;
+  transform: translateX(10px);
+}
+
+#portfolio a::after {
+  content: "->";
+  font-size: 0.85rem;
+  opacity: 0.4;
+  transition: opacity 0.25s ease;
+  white-space: nowrap;
+}
+
+#portfolio a:hover::after {
+  opacity: 1;
+}
+
+@media screen and (max-width: 480px) {
+  main {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+    padding: 20px;
+    text-align: center;
+  }
+
+  .content {
+    order: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  #interests ul {
+    justify-content: center;
+  }
+
+  .sidebar {
+    order: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .sidebar-img {
+    width: 300%;
+    max-width: 300px;
+    height: auto;
+    margin-top: 15px;
+  }
+
+  #portfolio a {
+    font-size: 1.2rem;
+    padding: 12px 16px;
+    flex-direction: column;
+    gap: 0px;
+    align-items: center;
+    text-align: center;
+  }
+
+  #portfolio a:hover {
+    transform: translateY(0px);
+  }
+
+  #portfolio a::after {
+    content: "";
+  }
+
+  .content h1 {
+    font-size: 2.5rem !important;
+  }
+
+  .content p {
+    font-size: 1.5rem !important;
+  }
+
+  html,
+  body {
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+}
